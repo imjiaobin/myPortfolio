@@ -1,0 +1,162 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.about {
+  background: var(--bg-secondary);
+  padding: 100px 24px;
+}
+
+.inner {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// ── 標題區 ────────────────────
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--brown);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+// ── 主體 ──────────────────────
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+
+  @include md {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+// ── 左側文字 ──────────────────
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.85;
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+  }
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brown);
+  margin-top: 8px;
+  transition: gap 0.2s;
+
+  &:hover {
+    gap: 10px;
+  }
+}
+
+// ── Timeline ──────────────────
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 32px;
+  position: relative;
+
+  // 連接線
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 16px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+  border: 2px solid var(--bg-secondary);
+
+  &.brown  { background: var(--brown); }
+  &.green  { background: var(--green); }
+  &.blue   { background: var(--blue); }
+  &.accent { background: var(--brown-soft); }
+}
+
+.timelineContent {
+  flex: 1;
+}
+
+.year {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.role {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 4px 0 8px;
+}
+
+.timelineDesc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}

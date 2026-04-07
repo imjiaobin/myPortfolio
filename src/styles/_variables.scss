@@ -1,0 +1,44 @@
+// =============================
+// css 變數
+// =============================
+:root {
+  --bg-primary:   #faf7f3;
+  --bg-secondary: #f0ebe3;
+  --bg-card:      #e8e0d5;
+
+  --brown:        #8b6e52;
+  --brown-soft:   #c4aa90;
+  --green:        #7a8c5a;
+  --green-soft:   #b5c49a;
+  --blue:         #264e70;
+  --blue-soft:    #7aaabb;
+
+  --text-primary: #3a322b;
+  --text-muted:   #7a6f65;
+  --border:       #d9d0c5;
+}
+
+[data-theme="dark"] {
+  --bg-primary:   #1e1a17;
+  --bg-secondary: #28231f;
+  --bg-card:      #332d27;
+
+  --brown:        #c9a882;
+  --brown-soft:   #9e7d5c;
+  --green:        #d4e8a8;
+  --green-soft:   #6a8248;
+  --blue:         #a8d4e8;
+  --blue-soft:    #264e70;
+
+  --text-primary: #e8dfd5;
+  --text-muted:   #a09080;
+  --border:       #4a4038;
+}
+
+// =============================
+// SCSS 變數
+// =============================
+$breakpoint-md: 768px;
+$breakpoint-lg: 1100px;
+$nav-height: 64px;
+$max-width: 1100px;

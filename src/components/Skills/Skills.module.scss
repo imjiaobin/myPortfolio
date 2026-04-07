@@ -1,0 +1,171 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.skills {
+  background: var(--bg-primary);
+  padding: 100px 24px;
+}
+
+.inner {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// ── 標題 ──────────────────────
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--brown);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+// ── 卡片格線 ──────────────────
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+
+  @include md {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(58, 50, 43, 0.08);
+
+    [data-theme="dark"] & {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+
+  &.brown { background: var(--bg-secondary); color: var(--brown); }
+  &.blue  { background: var(--bg-secondary); color: var(--blue);  }
+  &.green { background: var(--bg-secondary); color: var(--green); }
+  &.muted { background: var(--bg-secondary); color: var(--text-muted); }
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+// ── Skill Bar ─────────────────
+.skillList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skillItem {}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.skillName {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.skillLevel {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.barTrack {
+  height: 5px;
+  background: var(--bg-secondary);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 99px;
+
+  &.brown { background: var(--brown); }
+  &.blue  { background: var(--blue);  }
+  &.green { background: var(--green); }
+  &.muted { background: var(--text-muted); }
+}
+
+// ── 學習中 ────────────────────
+.learning {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.learningLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.learningTag {
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--brown);
+    color: var(--brown);
+  }
+}

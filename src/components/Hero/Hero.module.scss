@@ -1,0 +1,227 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $nav-height 24px 0;
+  position: relative;
+}
+
+.inner {
+  max-width: $max-width;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+
+  @include md {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+// ── 左側文字 ──────────────────
+.content {
+  flex: 1;
+  max-width: 560px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--brown);
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.nameEn {
+  color: var(--brown-soft);
+  font-weight: 400;
+  font-size: 0.6em;
+}
+
+.subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--blue);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 480px;
+
+  @include md {
+    margin: 0 auto 32px;
+  }
+}
+
+// ── 按鈕 ──────────────────────
+.btns {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+
+  @include md {
+    justify-content: center;
+  }
+}
+
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--bg-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: 1.5px solid var(--brown);
+  color: var(--brown);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--brown);
+    color: var(--bg-primary);
+  }
+}
+
+// ── 社群連結 ──────────────────
+.socials {
+  display: flex;
+  gap: 16px;
+
+  @include md {
+    justify-content: center;
+  }
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--brown);
+    color: var(--brown);
+    background: var(--bg-card);
+  }
+}
+
+// ── 右側裝飾 ──────────────────
+.deco {
+  flex-shrink: 0;
+  position: relative;
+  width: 340px;
+  height: 340px;
+
+  @include md {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.decoCircle1 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+}
+
+.decoCircle2 {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brown-soft);
+  opacity: 0.5;
+}
+
+.decoCircle3 {
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+}
+
+.avatarBox {
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  @include flex-center;
+  background: var(--bg-card);
+}
+
+.avatarText {
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--brown);
+
+  @include md {
+    font-size: 32px;
+  }
+}
+
+// ── Scroll hint ───────────────
+.scrollHint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+
+  @include md {
+    display: none;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}

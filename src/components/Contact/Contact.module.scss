@@ -1,0 +1,165 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.contact {
+  background: var(--bg-primary);
+  padding: 100px 24px 60px;
+}
+
+.inner {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// ── 標題 ──────────────────────
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  color: var(--brown);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+// ── 主體 ──────────────────────
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 80px;
+
+  @include md {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+// ── 左側文字 ──────────────────
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.textDesc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.emailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--bg-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// ── 右側聯絡卡片 ──────────────
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: all 0.2s;
+  color: inherit;
+
+  &:hover {
+    border-color: var(--brown-soft);
+    transform: translateX(4px);
+  }
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  flex-shrink: 0;
+
+  &.brown { background: var(--bg-secondary); color: var(--brown); }
+  &.blue  { background: var(--bg-secondary); color: var(--blue);  }
+  &.green { background: var(--bg-secondary); color: var(--green); }
+  &.muted { background: var(--bg-secondary); color: var(--text-muted); }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contactLabel {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contactValue {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+// ── Footer ────────────────────
+.footer {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footerText {
+  font-size: 13px;
+  color: var(--text-muted);
+}
